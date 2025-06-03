@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Gofroychetqq;
+using static Gofroychetqq.StockNotificationHelper;
 
 namespace Gofroychetqq
 {
@@ -115,6 +117,7 @@ namespace Gofroychetqq
                 db.SaveChanges();
 
                 MessageBox.Show("Списание успешно оформлено", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                CheckAndShowLowStockNotification();
                 DialogResult = true;
                 Close();
             }

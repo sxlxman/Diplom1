@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using Gofroychetqq;
+using static Gofroychetqq.StockNotificationHelper;
 
 namespace Gofroychetqq
 {
@@ -110,6 +112,7 @@ namespace Gofroychetqq
 
                 // Активируем кнопку печати
                 PrintButton.IsEnabled = true;
+                CheckAndShowLowStockNotification();
             }
             catch (Exception ex)
             {

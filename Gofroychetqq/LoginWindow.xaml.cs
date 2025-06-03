@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Gofroychetqq;
+using static Gofroychetqq.StockNotificationHelper;
 
 namespace Gofroychetqq
 {
@@ -43,6 +45,7 @@ namespace Gofroychetqq
                     // Открываем главное окно
                     MainWindow mainWindow = new MainWindow(user);
                     mainWindow.Show();
+                    CheckAndShowLowStockNotification();
                     this.Close();
                 }
                 else
