@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7b2f38efb27e4a62ab095ea2f7a226df" Name="Diagram1">
+        <EntityTypeShape EntityType="etonModel.Material" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="etonModel.MaterialType" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="etonModel.Nakladnaya" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="etonModel.Prihod" Width="1.5" PointX="7.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="etonModel.Rashod" Width="1.5" PointX="10.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="etonModel.Reason" Width="1.5" PointX="8.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="etonModel.Role" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="etonModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="etonModel.TypeNakladnaya" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="etonModel.Unit" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="etonModel.User" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="etonModel.FK_Material_MaterialType" ManuallyRouted="false" />
+        <AssociationConnector Association="etonModel.FK_Prihod_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="etonModel.FK_Rashod_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="etonModel.FK_MaterialType_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="etonModel.FK_Nakladnaya_TypeNakladnaya" ManuallyRouted="false" />
+        <AssociationConnector Association="etonModel.FK_Prihod_Nakladnaya1" ManuallyRouted="false" />
+        <AssociationConnector Association="etonModel.FK_Rashod_Nakladnaya" ManuallyRouted="false" />
+        <AssociationConnector Association="etonModel.FK_Prihod_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="etonModel.FK_Rashod_Reason" ManuallyRouted="false" />
+        <AssociationConnector Association="etonModel.FK_Rashod_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="etonModel.FK_User_Role1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="etonModel.Supplier" Width="1.5" PointX="10.375" PointY="13" />
+        <EntityTypeShape EntityType="etonModel.Supply" Width="1.5" PointX="12.625" PointY="9" />
+        <EntityTypeShape EntityType="etonModel.SupplyStatus" Width="1.5" PointX="10.375" PointY="9.5" />
+        <AssociationConnector Association="etonModel.FK_Prihod_Supply" />
+        <AssociationConnector Association="etonModel.FK_Supply_Supplier" />
+        <AssociationConnector Association="etonModel.FK_Supply_SupplyStatus" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

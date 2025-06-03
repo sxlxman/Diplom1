@@ -1,0 +1,1018 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище etonModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="MaterialID" />
+          </Key>
+          <Property Name="MaterialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaterialTypeID" Type="int" Nullable="false" />
+          <Property Name="MinimumStock" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterialType">
+          <Key>
+            <PropertyRef Name="MaterialTypeID" />
+          </Key>
+          <Property Name="MaterialTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UnitID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nakladnaya">
+          <Key>
+            <PropertyRef Name="NakladnayaID" />
+          </Key>
+          <Property Name="NakladnayaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="TypeNakladnaya" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prihod">
+          <Key>
+            <PropertyRef Name="PrihodID" />
+          </Key>
+          <Property Name="PrihodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterialID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="float" Nullable="false" />
+          <Property Name="PrihodDate" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="NakladnayaID" Type="int" Nullable="false" />
+          <Property Name="SupplyID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rashod">
+          <Key>
+            <PropertyRef Name="RashodID" />
+          </Key>
+          <Property Name="RashodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterialID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="float" Nullable="false" />
+          <Property Name="RashodDate" Type="datetime" Nullable="false" />
+          <Property Name="ReasonID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="NakladnayaID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reason">
+          <Key>
+            <PropertyRef Name="ReasonID" />
+          </Key>
+          <Property Name="ReasonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="INN" Type="nvarchar" MaxLength="20" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="100" />
+          <Property Name="Note" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Supply">
+          <Key>
+            <PropertyRef Name="SupplyID" />
+          </Key>
+          <Property Name="SupplyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupplierID" Type="int" Nullable="false" />
+          <Property Name="SupplyStatusID" Type="int" Nullable="false" />
+          <Property Name="SupplyDate" Type="datetime" Nullable="false" />
+          <Property Name="DocumentNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SupplyStatus">
+          <Key>
+            <PropertyRef Name="SupplyStatusID" />
+          </Key>
+          <Property Name="SupplyStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TypeNakladnaya">
+          <Key>
+            <PropertyRef Name="TypeNakladnayaID" />
+          </Key>
+          <Property Name="TypeNakladnayaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_Material_MaterialType">
+          <End Role="MaterialType" Type="Self.MaterialType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialType">
+              <PropertyRef Name="MaterialTypeID" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="MaterialTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialType_Unit">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MaterialType" Type="Self.MaterialType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitID" />
+            </Principal>
+            <Dependent Role="MaterialType">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nakladnaya_TypeNakladnaya">
+          <End Role="TypeNakladnaya" Type="Self.TypeNakladnaya" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Nakladnaya" Type="Self.Nakladnaya" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeNakladnaya">
+              <PropertyRef Name="TypeNakladnayaID" />
+            </Principal>
+            <Dependent Role="Nakladnaya">
+              <PropertyRef Name="TypeNakladnaya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prihod_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Prihod" Type="Self.Prihod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialID" />
+            </Principal>
+            <Dependent Role="Prihod">
+              <PropertyRef Name="MaterialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prihod_Nakladnaya">
+          <End Role="Nakladnaya" Type="Self.Nakladnaya" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Prihod" Type="Self.Prihod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nakladnaya">
+              <PropertyRef Name="NakladnayaID" />
+            </Principal>
+            <Dependent Role="Prihod">
+              <PropertyRef Name="NakladnayaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prihod_Supply">
+          <End Role="Supply" Type="Self.Supply" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Prihod" Type="Self.Prihod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supply">
+              <PropertyRef Name="SupplyID" />
+            </Principal>
+            <Dependent Role="Prihod">
+              <PropertyRef Name="SupplyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prihod_User">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Prihod" Type="Self.Prihod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Prihod">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rashod_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rashod" Type="Self.Rashod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialID" />
+            </Principal>
+            <Dependent Role="Rashod">
+              <PropertyRef Name="MaterialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rashod_Nakladnaya">
+          <End Role="Nakladnaya" Type="Self.Nakladnaya" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rashod" Type="Self.Rashod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nakladnaya">
+              <PropertyRef Name="NakladnayaID" />
+            </Principal>
+            <Dependent Role="Rashod">
+              <PropertyRef Name="NakladnayaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rashod_Reason">
+          <End Role="Reason" Type="Self.Reason" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rashod" Type="Self.Rashod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reason">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="Rashod">
+              <PropertyRef Name="ReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rashod_User1">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rashod" Type="Self.Rashod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Rashod">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supply_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Supply" Type="Self.Supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="Supply">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supply_SupplyStatus">
+          <End Role="SupplyStatus" Type="Self.SupplyStatus" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Supply" Type="Self.Supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupplyStatus">
+              <PropertyRef Name="SupplyStatusID" />
+            </Principal>
+            <Dependent Role="Supply">
+              <PropertyRef Name="SupplyStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role1">
+          <End Role="Role" Type="Self.Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище etonModelContainer">
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialType" EntityType="Self.MaterialType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nakladnaya" EntityType="Self.Nakladnaya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prihod" EntityType="Self.Prihod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rashod" EntityType="Self.Rashod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reason" EntityType="Self.Reason" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supply" EntityType="Self.Supply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplyStatus" EntityType="Self.SupplyStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeNakladnaya" EntityType="Self.TypeNakladnaya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Material_MaterialType" Association="Self.FK_Material_MaterialType">
+            <End Role="MaterialType" EntitySet="MaterialType" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialType_Unit" Association="Self.FK_MaterialType_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="MaterialType" EntitySet="MaterialType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nakladnaya_TypeNakladnaya" Association="Self.FK_Nakladnaya_TypeNakladnaya">
+            <End Role="TypeNakladnaya" EntitySet="TypeNakladnaya" />
+            <End Role="Nakladnaya" EntitySet="Nakladnaya" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prihod_Material" Association="Self.FK_Prihod_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Prihod" EntitySet="Prihod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prihod_Nakladnaya" Association="Self.FK_Prihod_Nakladnaya">
+            <End Role="Nakladnaya" EntitySet="Nakladnaya" />
+            <End Role="Prihod" EntitySet="Prihod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prihod_Supply" Association="Self.FK_Prihod_Supply">
+            <End Role="Supply" EntitySet="Supply" />
+            <End Role="Prihod" EntitySet="Prihod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prihod_User" Association="Self.FK_Prihod_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Prihod" EntitySet="Prihod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rashod_Material" Association="Self.FK_Rashod_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Rashod" EntitySet="Rashod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rashod_Nakladnaya" Association="Self.FK_Rashod_Nakladnaya">
+            <End Role="Nakladnaya" EntitySet="Nakladnaya" />
+            <End Role="Rashod" EntitySet="Rashod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rashod_Reason" Association="Self.FK_Rashod_Reason">
+            <End Role="Reason" EntitySet="Reason" />
+            <End Role="Rashod" EntitySet="Rashod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rashod_User1" Association="Self.FK_Rashod_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Rashod" EntitySet="Rashod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supply_Supplier" Association="Self.FK_Supply_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Supply" EntitySet="Supply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supply_SupplyStatus" Association="Self.FK_Supply_SupplyStatus">
+            <End Role="SupplyStatus" EntitySet="SupplyStatus" />
+            <End Role="Supply" EntitySet="Supply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role1" Association="Self.FK_User_Role1">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="etonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="MaterialID" />
+          </Key>
+          <Property Name="MaterialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaterialTypeID" Type="Int32" Nullable="false" />
+          <Property Name="MinimumStock" Type="Double" Nullable="false" />
+          <NavigationProperty Name="MaterialType" Relationship="Self.FK_Material_MaterialType" FromRole="Material" ToRole="MaterialType" />
+          <NavigationProperty Name="Prihod" Relationship="Self.FK_Prihod_Material" FromRole="Material" ToRole="Prihod" />
+          <NavigationProperty Name="Rashod" Relationship="Self.FK_Rashod_Material" FromRole="Material" ToRole="Rashod" />
+        </EntityType>
+        <EntityType Name="MaterialType">
+          <Key>
+            <PropertyRef Name="MaterialTypeID" />
+          </Key>
+          <Property Name="MaterialTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UnitID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_Material_MaterialType" FromRole="MaterialType" ToRole="Material" />
+          <NavigationProperty Name="Unit" Relationship="Self.FK_MaterialType_Unit" FromRole="MaterialType" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="Nakladnaya">
+          <Key>
+            <PropertyRef Name="NakladnayaID" />
+          </Key>
+          <Property Name="NakladnayaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TypeNakladnaya" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TypeNakladnaya1" Relationship="Self.FK_Nakladnaya_TypeNakladnaya" FromRole="Nakladnaya" ToRole="TypeNakladnaya" />
+          <NavigationProperty Name="Prihod" Relationship="Self.FK_Prihod_Nakladnaya1" FromRole="Nakladnaya" ToRole="Prihod" />
+          <NavigationProperty Name="Rashod" Relationship="Self.FK_Rashod_Nakladnaya" FromRole="Nakladnaya" ToRole="Rashod" />
+        </EntityType>
+        <EntityType Name="Prihod">
+          <Key>
+            <PropertyRef Name="PrihodID" />
+          </Key>
+          <Property Name="PrihodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Double" Nullable="false" />
+          <Property Name="PrihodDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="NakladnayaID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_Prihod_Material" FromRole="Prihod" ToRole="Material" />
+          <NavigationProperty Name="Nakladnaya" Relationship="Self.FK_Prihod_Nakladnaya1" FromRole="Prihod" ToRole="Nakladnaya" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Prihod_User1" FromRole="Prihod" ToRole="User" />
+          <Property Name="SupplyID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Supply" Relationship="etonModel.FK_Prihod_Supply" FromRole="Prihod" ToRole="Supply" />
+        </EntityType>
+        <EntityType Name="Rashod">
+          <Key>
+            <PropertyRef Name="RashodID" />
+          </Key>
+          <Property Name="RashodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Double" Nullable="false" />
+          <Property Name="RashodDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReasonID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="NakladnayaID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_Rashod_Material" FromRole="Rashod" ToRole="Material" />
+          <NavigationProperty Name="Nakladnaya" Relationship="Self.FK_Rashod_Nakladnaya" FromRole="Rashod" ToRole="Nakladnaya" />
+          <NavigationProperty Name="Reason" Relationship="Self.FK_Rashod_Reason" FromRole="Rashod" ToRole="Reason" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Rashod_User1" FromRole="Rashod" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Reason">
+          <Key>
+            <PropertyRef Name="ReasonID" />
+          </Key>
+          <Property Name="ReasonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Rashod" Relationship="Self.FK_Rashod_Reason" FromRole="Reason" ToRole="Rashod" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Role1" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TypeNakladnaya">
+          <Key>
+            <PropertyRef Name="TypeNakladnayaID" />
+          </Key>
+          <Property Name="TypeNakladnayaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Nakladnaya" Relationship="Self.FK_Nakladnaya_TypeNakladnaya" FromRole="TypeNakladnaya" ToRole="Nakladnaya" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MaterialType" Relationship="Self.FK_MaterialType_Unit" FromRole="Unit" ToRole="MaterialType" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Prihod" Relationship="Self.FK_Prihod_User1" FromRole="User" ToRole="Prihod" />
+          <NavigationProperty Name="Rashod" Relationship="Self.FK_Rashod_User1" FromRole="User" ToRole="Rashod" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role1" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK_Material_MaterialType">
+          <End Role="MaterialType" Type="Self.MaterialType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialType">
+              <PropertyRef Name="MaterialTypeID" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="MaterialTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prihod_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Prihod" Type="Self.Prihod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialID" />
+            </Principal>
+            <Dependent Role="Prihod">
+              <PropertyRef Name="MaterialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rashod_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rashod" Type="Self.Rashod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialID" />
+            </Principal>
+            <Dependent Role="Rashod">
+              <PropertyRef Name="MaterialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialType_Unit">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MaterialType" Type="Self.MaterialType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitID" />
+            </Principal>
+            <Dependent Role="MaterialType">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nakladnaya_TypeNakladnaya">
+          <End Role="TypeNakladnaya" Type="Self.TypeNakladnaya" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Nakladnaya" Type="Self.Nakladnaya" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeNakladnaya">
+              <PropertyRef Name="TypeNakladnayaID" />
+            </Principal>
+            <Dependent Role="Nakladnaya">
+              <PropertyRef Name="TypeNakladnaya" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prihod_Nakladnaya1">
+          <End Role="Nakladnaya" Type="Self.Nakladnaya" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Prihod" Type="Self.Prihod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nakladnaya">
+              <PropertyRef Name="NakladnayaID" />
+            </Principal>
+            <Dependent Role="Prihod">
+              <PropertyRef Name="NakladnayaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rashod_Nakladnaya">
+          <End Role="Nakladnaya" Type="Self.Nakladnaya" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rashod" Type="Self.Rashod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nakladnaya">
+              <PropertyRef Name="NakladnayaID" />
+            </Principal>
+            <Dependent Role="Rashod">
+              <PropertyRef Name="NakladnayaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prihod_User1">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Prihod" Type="Self.Prihod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Prihod">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rashod_Reason">
+          <End Role="Reason" Type="Self.Reason" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rashod" Type="Self.Rashod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reason">
+              <PropertyRef Name="ReasonID" />
+            </Principal>
+            <Dependent Role="Rashod">
+              <PropertyRef Name="ReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rashod_User1">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rashod" Type="Self.Rashod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Rashod">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role1">
+          <End Role="Role" Type="Self.Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="etonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Material" EntityType="Self.Material" />
+          <EntitySet Name="MaterialType" EntityType="Self.MaterialType" />
+          <EntitySet Name="Nakladnaya" EntityType="Self.Nakladnaya" />
+          <EntitySet Name="Prihod" EntityType="Self.Prihod" />
+          <EntitySet Name="Rashod" EntityType="Self.Rashod" />
+          <EntitySet Name="Reason" EntityType="Self.Reason" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TypeNakladnaya" EntityType="Self.TypeNakladnaya" />
+          <EntitySet Name="Unit" EntityType="Self.Unit" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Material_MaterialType" Association="Self.FK_Material_MaterialType">
+            <End Role="MaterialType" EntitySet="MaterialType" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prihod_Material" Association="Self.FK_Prihod_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Prihod" EntitySet="Prihod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rashod_Material" Association="Self.FK_Rashod_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Rashod" EntitySet="Rashod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialType_Unit" Association="Self.FK_MaterialType_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="MaterialType" EntitySet="MaterialType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nakladnaya_TypeNakladnaya" Association="Self.FK_Nakladnaya_TypeNakladnaya">
+            <End Role="TypeNakladnaya" EntitySet="TypeNakladnaya" />
+            <End Role="Nakladnaya" EntitySet="Nakladnaya" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prihod_Nakladnaya1" Association="Self.FK_Prihod_Nakladnaya1">
+            <End Role="Nakladnaya" EntitySet="Nakladnaya" />
+            <End Role="Prihod" EntitySet="Prihod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rashod_Nakladnaya" Association="Self.FK_Rashod_Nakladnaya">
+            <End Role="Nakladnaya" EntitySet="Nakladnaya" />
+            <End Role="Rashod" EntitySet="Rashod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prihod_User1" Association="Self.FK_Prihod_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Prihod" EntitySet="Prihod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rashod_Reason" Association="Self.FK_Rashod_Reason">
+            <End Role="Reason" EntitySet="Reason" />
+            <End Role="Rashod" EntitySet="Rashod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rashod_User1" Association="Self.FK_Rashod_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Rashod" EntitySet="Rashod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role1" Association="Self.FK_User_Role1">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <EntitySet Name="Supplier" EntityType="etonModel.Supplier" />
+          <EntitySet Name="Supply" EntityType="etonModel.Supply" />
+          <EntitySet Name="SupplyStatus" EntityType="etonModel.SupplyStatus" />
+          <AssociationSet Name="FK_Prihod_Supply" Association="etonModel.FK_Prihod_Supply">
+            <End Role="Supply" EntitySet="Supply" />
+            <End Role="Prihod" EntitySet="Prihod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supply_Supplier" Association="etonModel.FK_Supply_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Supply" EntitySet="Supply" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supply_SupplyStatus" Association="etonModel.FK_Supply_SupplyStatus">
+            <End Role="SupplyStatus" EntitySet="SupplyStatus" />
+            <End Role="Supply" EntitySet="Supply" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="INN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Supply" Relationship="etonModel.FK_Supply_Supplier" FromRole="Supplier" ToRole="Supply" />
+        </EntityType>
+        <EntityType Name="Supply">
+          <Key>
+            <PropertyRef Name="SupplyID" />
+          </Key>
+          <Property Name="SupplyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierID" Type="Int32" Nullable="false" />
+          <Property Name="SupplyStatusID" Type="Int32" Nullable="false" />
+          <Property Name="SupplyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DocumentNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Prihod" Relationship="etonModel.FK_Prihod_Supply" FromRole="Supply" ToRole="Prihod" />
+          <NavigationProperty Name="Supplier" Relationship="etonModel.FK_Supply_Supplier" FromRole="Supply" ToRole="Supplier" />
+          <NavigationProperty Name="SupplyStatus" Relationship="etonModel.FK_Supply_SupplyStatus" FromRole="Supply" ToRole="SupplyStatus" />
+        </EntityType>
+        <EntityType Name="SupplyStatus">
+          <Key>
+            <PropertyRef Name="SupplyStatusID" />
+          </Key>
+          <Property Name="SupplyStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Supply" Relationship="etonModel.FK_Supply_SupplyStatus" FromRole="SupplyStatus" ToRole="Supply" />
+        </EntityType>
+        <Association Name="FK_Prihod_Supply">
+          <End Type="etonModel.Supply" Role="Supply" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="etonModel.Prihod" Role="Prihod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supply">
+              <PropertyRef Name="SupplyID" />
+            </Principal>
+            <Dependent Role="Prihod">
+              <PropertyRef Name="SupplyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supply_Supplier">
+          <End Type="etonModel.Supplier" Role="Supplier" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="etonModel.Supply" Role="Supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="Supply">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supply_SupplyStatus">
+          <End Type="etonModel.SupplyStatus" Role="SupplyStatus" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="etonModel.Supply" Role="Supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupplyStatus">
+              <PropertyRef Name="SupplyStatusID" />
+            </Principal>
+            <Dependent Role="Supply">
+              <PropertyRef Name="SupplyStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище etonModelContainer" CdmEntityContainer="etonEntities">
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="etonModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MaterialTypeID" ColumnName="MaterialTypeID" />
+                <ScalarProperty Name="MinimumStock" ColumnName="MinimumStock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialType">
+            <EntityTypeMapping TypeName="etonModel.MaterialType">
+              <MappingFragment StoreEntitySet="MaterialType">
+                <ScalarProperty Name="MaterialTypeID" ColumnName="MaterialTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nakladnaya">
+            <EntityTypeMapping TypeName="etonModel.Nakladnaya">
+              <MappingFragment StoreEntitySet="Nakladnaya">
+                <ScalarProperty Name="NakladnayaID" ColumnName="NakladnayaID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="TypeNakladnaya" ColumnName="TypeNakladnaya" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prihod">
+            <EntityTypeMapping TypeName="etonModel.Prihod">
+              <MappingFragment StoreEntitySet="Prihod">
+                <ScalarProperty Name="SupplyID" ColumnName="SupplyID" />
+                <ScalarProperty Name="PrihodID" ColumnName="PrihodID" />
+                <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="PrihodDate" ColumnName="PrihodDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="NakladnayaID" ColumnName="NakladnayaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rashod">
+            <EntityTypeMapping TypeName="etonModel.Rashod">
+              <MappingFragment StoreEntitySet="Rashod">
+                <ScalarProperty Name="RashodID" ColumnName="RashodID" />
+                <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="RashodDate" ColumnName="RashodDate" />
+                <ScalarProperty Name="ReasonID" ColumnName="ReasonID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="NakladnayaID" ColumnName="NakladnayaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reason">
+            <EntityTypeMapping TypeName="etonModel.Reason">
+              <MappingFragment StoreEntitySet="Reason">
+                <ScalarProperty Name="ReasonID" ColumnName="ReasonID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="etonModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="etonModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeNakladnaya">
+            <EntityTypeMapping TypeName="etonModel.TypeNakladnaya">
+              <MappingFragment StoreEntitySet="TypeNakladnaya">
+                <ScalarProperty Name="TypeNakladnayaID" ColumnName="TypeNakladnayaID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Unit">
+            <EntityTypeMapping TypeName="etonModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="etonModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supplier">
+            <EntityTypeMapping TypeName="etonModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supply">
+            <EntityTypeMapping TypeName="etonModel.Supply">
+              <MappingFragment StoreEntitySet="Supply">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+                <ScalarProperty Name="SupplyDate" ColumnName="SupplyDate" />
+                <ScalarProperty Name="SupplyStatusID" ColumnName="SupplyStatusID" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="SupplyID" ColumnName="SupplyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplyStatus">
+            <EntityTypeMapping TypeName="etonModel.SupplyStatus">
+              <MappingFragment StoreEntitySet="SupplyStatus">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SupplyStatusID" ColumnName="SupplyStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

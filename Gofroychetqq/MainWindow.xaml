@@ -1,0 +1,99 @@
+﻿<Window x:Class="Gofroychetqq.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gofroychetqq"
+        mc:Ignorable="d"
+        Title="Главное окно" Height="600" Width="1000" WindowStartupLocation="CenterScreen" Background="White">
+    <Grid>
+        <Border Background="#FFE0E0E0" CornerRadius="10" Margin="20">
+            <StackPanel Margin="20">
+                <!-- Панель пользователя -->
+                <Grid Margin="0,0,0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Фото и информация о пользователе -->
+                    <StackPanel Orientation="Horizontal" Grid.Column="0">
+                        <Border Width="40" Height="40" CornerRadius="20" Margin="0,0,10,0" 
+                                BorderBrush="#FFB0B0B0" BorderThickness="1">
+                            <Image x:Name="UserPhoto" Width="36" Height="36" Stretch="UniformToFill" 
+                                   ClipToBounds="True"/>
+                        </Border>
+                        <TextBlock x:Name="UserInfoText" FontSize="14" Foreground="Black" 
+                                 VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- Кнопки управления -->
+                    <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right">
+                        <Button x:Name="ManageAccountsButton" Content="Управление учётными записями" 
+                                Width="220" Height="30" Margin="0,0,10,0" Style="{StaticResource ButtonStyle}" 
+                                Click="ManageAccountsButton_Click" Visibility="Collapsed"/>
+                        <Button Content="Выход" Width="80" Height="30" Style="{StaticResource ButtonStyle}" 
+                                Click="ExitButton_Click"/>
+                    </StackPanel>
+                </Grid>
+
+                <TextBlock Text="Система управления складом" FontSize="24" FontWeight="Bold" 
+                         Foreground="Black" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Управление товарами -->
+                    <GroupBox Grid.Column="0" Grid.Row="0" Header="Управление сырьем" 
+                             Foreground="Black" Margin="5" BorderBrush="#FFB0B0B0">
+                        <StackPanel Margin="10">
+                            <Button Content="Сырье" Width="200" Height="40" Margin="5" 
+                                    Style="{StaticResource ButtonStyle}" Click="RawMaterialsButton_Click"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <!-- Управление поставщиками -->
+                    <GroupBox Grid.Column="1" Grid.Row="0" Header="Управление поставщиками" 
+                             Foreground="Black" Margin="5" BorderBrush="#FFB0B0B0">
+                        <StackPanel Margin="10">
+                            <Button Content="Поставщики" Width="200" Height="40" Margin="5" 
+                                    Style="{StaticResource ButtonStyle}" Click="SuppliersButton_Click"/>
+                            <Button Content="Поставки" Width="200" Height="40" Margin="5" 
+                                    Style="{StaticResource ButtonStyle}" Click="SupplyButton_Click"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <!-- Управление поставками -->
+                    <GroupBox Grid.Column="0" Grid.Row="1" Header="Управление поставками" 
+                             Foreground="Black" Margin="5" BorderBrush="#FFB0B0B0">
+                        <StackPanel Margin="10">
+                            <Button Content="Оформить приход сырья" Width="200" Height="40" Margin="5" 
+                                    Style="{StaticResource ButtonStyle}" Click="CreatePrihodButton_Click"/>
+                            <Button Content="Оформить списание сырья" Width="200" Height="40" Margin="5" 
+                                    Style="{StaticResource ButtonStyle}" Click="OutcomeButton_Click"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <!-- Отчеты -->
+                    <GroupBox Grid.Column="1" Grid.Row="1" Header="Отчеты" 
+                             Foreground="Black" Margin="5" BorderBrush="#FFB0B0B0">
+                        <StackPanel Margin="10">
+                            <Button Content="Остатки" Width="200" Height="40" Margin="5" 
+                                    Style="{StaticResource ButtonStyle}" Click="RemainsButton_Click"/>
+                            <Button Content="Движение товаров" Width="200" Height="40" Margin="5" 
+                                    Style="{StaticResource ButtonStyle}" Click="MovementButton_Click"/>
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
