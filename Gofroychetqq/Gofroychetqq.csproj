@@ -77,6 +77,9 @@
     <Compile Include="ChangeRoleWindow.xaml.cs">
       <DependentUpon>ChangeRoleWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditSupplyWindow.xaml.cs">
+      <DependentUpon>EditSupplyWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,9 @@
     <Compile Include="Supply.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="SupplyDetailsWindow.xaml.cs">
+      <DependentUpon>SupplyDetailsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SupplyStatus.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -158,6 +164,10 @@
     <Page Include="ChangeRoleWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditSupplyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
@@ -202,6 +212,10 @@
       <DependentUpon>EditMaterialWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="SuppliersWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SupplyDetailsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -84,7 +84,11 @@ namespace Gofroychetqq
                 return;
             }
 
-            MessageBox.Show("Функционал редактирования пока не реализован в этом окне.", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            var editSupplyWindow = new EditSupplyWindow(selectedSupply);
+            if (editSupplyWindow.ShowDialog() == true)
+            {
+                LoadSupplies();
+            }
         }
 
         private void DeleteSupply_Click(object sender, RoutedEventArgs e)
@@ -123,7 +127,9 @@ namespace Gofroychetqq
             var supply = button.DataContext as Supply;
             if (supply != null)
             {
-                MessageBox.Show($"Просмотр деталей поставки #{supply.DocumentNumber} пока не реализован.", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                var supplyDetailsWindow = new SupplyDetailsWindow(supply.SupplyID);
+                supplyDetailsWindow.Owner = this;
+                supplyDetailsWindow.ShowDialog();
             }
         }
     }

@@ -1,7 +1,7 @@
 <Window x:Class="Gofroychetqq.AddOrEditUserWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Пользователь" Height="350" Width="400" WindowStartupLocation="CenterOwner" Background="White">
+        Title="Пользователь" Height="400" Width="500" WindowStartupLocation="CenterOwner" Background="White">
     <Window.Resources>
         <!-- Стили для светлой темы -->
         <Style TargetType="{x:Type TextBox}">

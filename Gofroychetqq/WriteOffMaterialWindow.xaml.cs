@@ -93,6 +93,13 @@ namespace Gofroychetqq
                     return;
                 }
 
+                // Проверка, что остаток после списания не станет отрицательным
+                if (currentStock - quantity < 0)
+                {
+                    MessageBox.Show($"Списание {quantity} {selectedMaterial.MaterialType.Unit.Name} приведет к отрицательному остатку. Доступно: {currentStock} {selectedMaterial.MaterialType.Unit.Name}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
                 // Создаем накладную
                 var nakladnaya = new Nakladnaya
                 {

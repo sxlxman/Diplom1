@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gofroychetqq"
         mc:Ignorable="d"
-        Title="Управление поставками" Height="600" Width="1000" WindowStartupLocation="CenterScreen" Background="White">
+        Title="Управление поставками" Height="800" Width="1200" WindowStartupLocation="CenterScreen" Background="White">
     <Window.Resources>
         <!-- Стили для светлой темы -->
         <Style TargetType="{x:Type ComboBox}">
@@ -127,7 +127,7 @@
 
                 <!-- Кнопки действий -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
-                    <Button Content="Добавить поставку" Margin="0,0,10,0" Style="{StaticResource ButtonStyle}" Click="AddSupply_Click"/>
+                    <Button Content="Добавить поставку" Margin="0,0,10,0" Style="{StaticResource ButtonStyle}" Click="AddSupply_Click" Width="134" Height="23"/>
                     <Button Content="Редактировать" Margin="0,0,10,0" Style="{StaticResource ButtonStyle}" Click="EditSupply_Click"/>
                     <Button Content="Удалить" Style="{StaticResource ButtonStyle}" Click="DeleteSupply_Click"/>
                 </StackPanel>
