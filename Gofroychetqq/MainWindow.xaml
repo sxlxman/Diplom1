@@ -38,7 +38,7 @@
                     </StackPanel>
                 </Grid>
 
-                <TextBlock Text="Система управления складом" FontSize="24" FontWeight="Bold" 
+                <TextBlock Text="Система учёта сырья" FontSize="24" FontWeight="Bold" 
                          Foreground="Black" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
                 <Grid>
@@ -67,7 +67,7 @@
                             <Button Content="Поставщики" Width="200" Height="40" Margin="5" 
                                     Style="{StaticResource ButtonStyle}" Click="SuppliersButton_Click"/>
                             <Button Content="Поставки" Width="200" Height="40" Margin="5" 
-                                    Style="{StaticResource ButtonStyle}" Click="SupplyButton_Click"/>
+                                    Style="{StaticResource ButtonStyle}" Click="SuppliesButton_Click"/>
                         </StackPanel>
                     </GroupBox>
 

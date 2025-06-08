@@ -94,7 +94,7 @@ namespace Gofroychetqq
             suppliersWindow.Show();
         }
 
-        private void SupplyButton_Click(object sender, RoutedEventArgs e)
+        private void SuppliesButton_Click(object sender, RoutedEventArgs e)
         {
             // Открываем окно поставок и передаем текущего пользователя
             var supplyWindow = new SupplyWindow(_currentUser);

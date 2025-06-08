@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gofroychetqq"
         mc:Ignorable="d"
-        Title="Добавление/Редактирование поставщика" Height="500" Width="600" 
+        Title="Добавление/Редактирование поставщика" Height="670" Width="600" 
         WindowStartupLocation="CenterScreen" Background="White">
     <Window.Resources>
         <!-- Стили для светлой темы -->
