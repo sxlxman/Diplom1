@@ -129,6 +129,14 @@
                                     <Binding Path="Material" UpdateSourceTrigger="PropertyChanged"/>
                                 </DataGridComboBoxColumn.SelectedValueBinding>
                             </DataGridComboBoxColumn>
+                            <DataGridTextColumn Header="Ед. изм." Width="100"
+                                Binding="{Binding Material.MaterialType.Unit.Name}" IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource DataGridContentText}">
+                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn Header="Количество" Width="150" 
                                               x:Name="QuantityColumn" Binding="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridTextColumn.ElementStyle>

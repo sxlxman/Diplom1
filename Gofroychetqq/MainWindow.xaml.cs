@@ -128,6 +128,13 @@ namespace Gofroychetqq
             MessageBox.Show("Функционал в разработке", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
+        private void SupplyReportsButton_Click(object sender, RoutedEventArgs e)
+        {
+            var reportsWindow = new SupplyReportsWindow();
+            reportsWindow.Owner = this;
+            reportsWindow.ShowDialog();
+        }
+
         private void CreatePrihodButton_Click(object sender, RoutedEventArgs e)
         {
             var prihodWindow = new PrihodWindow(_currentUser);

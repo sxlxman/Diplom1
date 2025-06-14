@@ -90,6 +90,8 @@
                                     Style="{StaticResource ButtonStyle}" Click="RemainsButton_Click"/>
                             <Button Content="Движение товаров" Width="200" Height="40" Margin="5" 
                                     Style="{StaticResource ButtonStyle}" Click="MovementButton_Click"/>
+                            <Button Content="Отчёты о поставках" Width="200" Height="40" Margin="5" 
+                                    Style="{StaticResource ButtonStyle}" Click="SupplyReportsButton_Click"/>
                         </StackPanel>
                     </GroupBox>
                 </Grid>
