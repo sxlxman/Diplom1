@@ -118,8 +118,9 @@ namespace Gofroychetqq
 
         private void RemainsButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: Реализовать открытие окна остатков
-            MessageBox.Show("Функционал в разработке", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            var reportsWindow = new RemainsReportsWindow();
+            reportsWindow.Owner = this;
+            reportsWindow.ShowDialog();
         }
 
         private void MovementButton_Click(object sender, RoutedEventArgs e)
