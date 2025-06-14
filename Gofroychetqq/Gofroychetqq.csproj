@@ -156,6 +156,9 @@
     <Compile Include="WriteOffMaterialWindow.xaml.cs">
       <DependentUpon>WriteOffMaterialWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MaterialMovementReportsWindow.xaml.cs">
+      <DependentUpon>MaterialMovementReportsWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddOrEditSupplierWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -233,6 +236,10 @@
     <Page Include="WriteOffMaterialWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MaterialMovementReportsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

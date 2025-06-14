@@ -124,8 +124,9 @@ namespace Gofroychetqq
 
         private void MovementButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: Реализовать открытие окна движения товаров
-            MessageBox.Show("Функционал в разработке", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            var reportsWindow = new MaterialMovementReportsWindow();
+            reportsWindow.Owner = this;
+            reportsWindow.ShowDialog();
         }
 
         private void SupplyReportsButton_Click(object sender, RoutedEventArgs e)
